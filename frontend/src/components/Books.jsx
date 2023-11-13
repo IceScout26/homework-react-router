@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 export default function Books({ id, title, author, image, publisher, year }) {
   return (
     <Link to={`/books/${id}`}>
-    <Card key={id} my={4} p={4} cursor='pointer'>
+    <Card key={id} my={4} p={4} cursor='pointer' bg="gray.800" color="whiteAlpha.800">
       <VStack>
         <Heading size={"md"}>
           {title} ({year})
