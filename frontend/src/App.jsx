@@ -9,7 +9,7 @@ import Register from "./pages/Register";
 
 function App() {
   return (
-    <VStack minH="100vh" minW="100vw">
+    <VStack minH="100vh" minW="100vw" bg="#DDDDDD">
       <Router>
         <Navbar />
         <Routes>
