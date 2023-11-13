@@ -1,5 +1,6 @@
 import {
   Button,
+  Center,
   FormControl,
   FormLabel,
   Image,
@@ -87,53 +88,51 @@ export default function BookForm({ bookData }) {
       <VStack spacing={4}>
         <FormControl>
           <FormLabel>Title</FormLabel>
-          <Input name="title" required defaultValue={bookData?.title} />
+          <Input name="title" required defaultValue={bookData?.title} borderColor="#658864" />
         </FormControl>
         <FormControl>
           <FormLabel>Author</FormLabel>
-          <Input name="author" required defaultValue={bookData?.author} />
+          <Input name="author" required defaultValue={bookData?.author} borderColor="#658864" />
         </FormControl>
         <FormControl>
           <FormLabel>Publisher</FormLabel>
-          <Input name="publisher" required defaultValue={bookData?.publisher} />
+          <Input name="publisher" required defaultValue={bookData?.publisher} borderColor="#658864" />
         </FormControl>
         <FormControl>
           <FormLabel>Year</FormLabel>
-          <Input
-            name="year"
-            type="number"
-            required
-            defaultValue={bookData?.year}
-          />
+          <Input name="year" type="number" required defaultValue={bookData?.year} borderColor="#658864" />
         </FormControl>
         <FormControl>
           <FormLabel>Pages</FormLabel>
-          <Input
-            name="pages"
-            type="number"
-            required
-            defaultValue={bookData?.pages}
-          />
+          <Input name="pages" type="number" required defaultValue={bookData?.pages} borderColor="#658864" />
         </FormControl>
         {selectedImage && (
           <Image w={64} src={selectedImage} alt="Selected Image" />
         )}
         {!bookData?.image && (
-          <FormControl>
-            <FormLabel>Image</FormLabel>
-            <Input
-              name="image"
-              type="file"
-              accept="image/*"
-              onChange={(e) => {
-                const file = e.target.files[0];
-                setSelectedImage(URL.createObjectURL(file));
-              }}
-            />
-          </FormControl>
+        <FormControl>
+          <FormLabel htmlFor="image">Choose Picture</FormLabel>
+          <Input
+            id="image"
+            name="image"
+            type="file"
+            accept="image/*"
+            onChange={(e) => {
+              const file = e.target.files[0];
+              setSelectedImage(URL.createObjectURL(file));
+            }}
+            display="none"
+          />
+          <Center>
+            <Button fontSize="sm" as="label" bg="blue.600" color="white" htmlFor="image" cursor="pointer">
+              Upload
+            </Button>
+          </Center>
+        </FormControl>
+        
         )}
 
-        <Button type="submit">{bookData ? "Edit Book" : "Create Book"}</Button>
+        <Button fontSize="sm" as="samp" bg="green.900" color="white" type="submit">{bookData ? "Edit Book" : "Create Book"}</Button>
       </VStack>
     </form>
   );
