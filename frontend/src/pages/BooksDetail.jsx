@@ -53,7 +53,7 @@ export default function BookDetails() {
         <Skeleton height="300px" my="6" />
       ) : (
         <Flex my="6">
-          <Box w="300px">
+          <Box w="150px">
             <Image
               src={`http://localhost:8000/${book.image}`}
               alt={book.title}

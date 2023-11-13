@@ -41,13 +41,13 @@ const Navbar = () => {
       align="center"
       justify="space-between"
       wrap="wrap"
-      padding="1rem"
-      bg="teal.500"
+      padding="0.5rem"
+      bg="#658864"
       color="white"
     >
       <Link to="/">
         <Flex align="center" mr={5} cursor="pointer">
-          <Text fontSize="xl" fontWeight="bold">
+          <Text fontSize="sm" fontWeight="bold">
             My Website
           </Text>
         </Flex>
@@ -59,12 +59,12 @@ const Navbar = () => {
           </Link>
         )}
         {!isLogin ? (
-          <Button onClick={onOpen} colorScheme="blue">
+          <Button onClick={onOpen} bg="#B7B78A" color="black">
             Login
           </Button>
         ) : (
           <Button
-            colorScheme="blue"
+            bg="#B7B78A"
             onClick={() => {
               window.localStorage.removeItem("token");
               setIsLogin(false);
@@ -125,7 +125,7 @@ const Navbar = () => {
               </VStack>
             </ModalBody>
             <ModalFooter>
-              <Button type="submit" form="login-form" colorScheme="blue" mr={3}>
+              <Button type="submit" form="login-form" bg="#B7B78A" mr={3}>
                 Login
               </Button>
               <Link to="/register" onClick={onClose}>
